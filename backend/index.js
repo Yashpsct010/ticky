@@ -1,6 +1,6 @@
-const express = require('express');
-const mongoose = require('mongoose');
-const ticketRoutes = require('./routes/ticketRoutes');
+const express = require("express");
+const mongoose = require("mongoose");
+const ticketRoutes = require("./routes/ticketRoutes");
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -9,15 +9,15 @@ const PORT = process.env.PORT || 3000;
 app.use(express.json());
 
 // MongoDB connection
-mongoose.connect('mongodb://localhost:27017/ticketDB', {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-})
-  .then(() => console.log('MongoDB connected'))
-  .catch((err) => console.log('MongoDB connection error:', err));
+mongoose
+  .connect(
+    "mongodb+srv://yashpsct001:parmar@react-portfolio.jsagtah.mongodb.net/?retryWrites=true&w=majority&appName=react-portfolio"
+  )
+  .then(() => console.log("MongoDB connected"))
+  .catch((err) => console.log("MongoDB connection error:", err));
 
 // API routes
-app.use('/api/tickets', ticketRoutes);
+app.use("/api/tickets", ticketRoutes);
 
 // Start the server
 app.listen(PORT, () => {
