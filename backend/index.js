@@ -1,6 +1,7 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const ticketRoutes = require("./routes/ticketRoutes");
+const dotenv = require("dotenv").config();
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -10,9 +11,7 @@ app.use(express.json());
 
 // MongoDB connection
 mongoose
-  .connect(
-    "mongodb+srv://yashpsct001:parmar@react-portfolio.jsagtah.mongodb.net/?retryWrites=true&w=majority&appName=react-portfolio"
-  )
+  .connect(process.env.MONGODB_URI)
   .then(() => console.log("MongoDB connected"))
   .catch((err) => console.log("MongoDB connection error:", err));
 

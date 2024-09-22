@@ -4,14 +4,20 @@ const TicketSchema = new mongoose.Schema({
   title: {
     type: String,
     required: [true, 'Title is required'],
+    trim: true,
+    minlength: [5, 'Title must be at least 5 characters long'],
   },
   description: {
     type: String,
     required: [true, 'Description is required'],
+    minlength: [10, 'Description must be at least 10 characters long'],
   },
   status: {
     type: String,
-    enum: ['open', 'in progress', 'closed'],
+    enum: {
+      values: ['open', 'in progress', 'closed'],
+      message: 'Status must be either open, in progress, or closed',
+    },
     default: 'open',
   },
   createdAt: {
@@ -24,7 +30,6 @@ const TicketSchema = new mongoose.Schema({
   },
 });
 
-// Update `updatedAt` on every save
 TicketSchema.pre('save', function (next) {
   this.updatedAt = Date.now();
   next();

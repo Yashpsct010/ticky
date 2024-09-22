@@ -19,7 +19,7 @@ router.get('/', async (req, res) => {
     const tickets = await Ticket.find();
     res.status(200).json(tickets);
   } catch (error) {
-    res.status(500).json({ error: error.message });
+    res.status(500).json({ error: 'Server error' });
   }
 });
 
@@ -32,7 +32,7 @@ router.get('/:id', async (req, res) => {
     }
     res.status(200).json(ticket);
   } catch (error) {
-    res.status(500).json({ error: error.message });
+    res.status(400).json({ error: 'Invalid ticket ID format' });
   }
 });
 
@@ -42,14 +42,14 @@ router.put('/:id', async (req, res) => {
     const ticket = await Ticket.findByIdAndUpdate(
       req.params.id,
       req.body,
-      { new: true, runValidators: true }
+      { new: true, runValidators: true } // Run Mongoose validation
     );
     if (!ticket) {
       return res.status(404).json({ error: 'Ticket not found' });
     }
     res.status(200).json(ticket);
   } catch (error) {
-    res.status(500).json({ error: error.message });
+    res.status(400).json({ error: error.message });
   }
 });
 
@@ -62,7 +62,7 @@ router.delete('/:id', async (req, res) => {
     }
     res.status(200).json({ message: 'Ticket deleted successfully' });
   } catch (error) {
-    res.status(500).json({ error: error.message });
+    res.status(400).json({ error: 'Invalid ticket ID format' });
   }
 });
 
