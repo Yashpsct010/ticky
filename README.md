@@ -10,7 +10,7 @@ This is a simple RESTful API-based ticket management system built with Node.js, 
 ## Installation
 
 1. Clone the repository:
-
+##
     code/git clone
     cd backend
     nodemon index.js
@@ -41,11 +41,13 @@ Validation Errors
 When required fields are missing or invalid data is provided, the API responds with a 400 Bad Request status, along with a descriptive error message. This ensures that only valid data is processed.
 
 Example: Missing title in the request
+##
     code/{
       "error": "Title is required"
       }
 
 Example: Invalid status value
+##
     code/{
       "error": "Status must be either open, in progress, or closed"
       }
@@ -54,6 +56,7 @@ Non-existent Ticket Errors
 When attempting to retrieve, update, or delete a ticket that does not exist, the API responds with a 404 Not Found status and an error message.
 
 Example: Ticket not found
+##
     code/{
       "error": "Ticket not found"
       }
@@ -62,6 +65,7 @@ Invalid ID Format
 If the ticket ID provided in the request does not conform to MongoDB's ID format, the API responds with a 400 Bad Request status and an error message.
 
 Example: Invalid ID format
+##
     code/{
       "error": "Invalid ticket ID format"
       }
@@ -70,6 +74,7 @@ Server Errors
 In the event of an internal server issue, the API responds with a 500 Internal Server Error status and a general error message.
 
 Example: Server-side error
+##
     code/{
       "error": "Server error"
       }
