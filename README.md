@@ -11,9 +11,9 @@ This is a simple RESTful API-based ticket management system built with Node.js, 
 
 1. Clone the repository:
 
-   [text](git clone 
-   cd backend 
-   nodemon index.js)
+    code/git clone
+    cd backend
+    nodemon index.js
 
 2. Validation and Error Handling
 This section explains how validation and error handling are implemented in the Ticket Management System API to ensure data integrity and provide meaningful feedback to the user.
@@ -41,41 +41,43 @@ Validation Errors
 When required fields are missing or invalid data is provided, the API responds with a 400 Bad Request status, along with a descriptive error message. This ensures that only valid data is processed.
 
 Example: Missing title in the request
-[text]({
-  "error": "Title is required"
-})
+    code/{
+      "error": "Title is required"
+      }
 
 Example: Invalid status value
-[text]({
-  "error": "Status must be either open, in progress, or closed"
-})
+    code/{
+      "error": "Status must be either open, in progress, or closed"
+      }
 
 Non-existent Ticket Errors
 When attempting to retrieve, update, or delete a ticket that does not exist, the API responds with a 404 Not Found status and an error message.
 
 Example: Ticket not found
-[text]({
-  "error": "Ticket not found"
-})
+    code/{
+      "error": "Ticket not found"
+      }
 
 Invalid ID Format
 If the ticket ID provided in the request does not conform to MongoDB's ID format, the API responds with a 400 Bad Request status and an error message.
 
 Example: Invalid ID format
-[text]({
-  "error": "Invalid ticket ID format"
-})
+    code/{
+      "error": "Invalid ticket ID format"
+      }
 
 Server Errors
 In the event of an internal server issue, the API responds with a 500 Internal Server Error status and a general error message.
 
 Example: Server-side error
-[text]({
-  "error": "Server error"
-})
+    code/{
+      "error": "Server error"
+      }
 
 
 ## API Testing using Postman
 
    Postman Collection Link - [text](https://api.postman.com/collections/23827736-247f6a51-b245-4175-bfd6-a1b470766909?access_key=PMAT-01J8DGVT1SKH9MFNE5PAVV76YB)
 
+Made By Yash Parmar
+yashpsct001@gmail.com
